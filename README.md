@@ -13,7 +13,7 @@ API para operações financeiras com consulta de saldo e extrato, possibilidade 
 
 ## Endpoints usuarios
 
-			<p>LISTA</p>
+<p>LISTA</p>
             <ul>
                 <li> METODO : GET </li>
                  <li> ENDPOINT : http://localhost:8000/user/list </li>
@@ -38,7 +38,7 @@ API para operações financeiras com consulta de saldo e extrato, possibilidade 
 		
   
   ## Endpoint conta corrente
-            <p>LISTA</p>
+  <p>LISTA</p>
             <ul>
                 <li> METODO : GET </li>
                  <li> ENDPOINT : http://localhost:8000/api/conta-corrente/list </li>
@@ -65,9 +65,9 @@ API para operações financeiras com consulta de saldo e extrato, possibilidade 
             </ul>
 			
  ## Endpoint movimentacao 
-         <p>SALDO</p>
+  <p>SALDO</p>
             <ul>
-                <li> METODO : POST </li>
+                <li> METODO : GET </li>
                  <li> ENDPOINT : http://localhost:8000/movimentacao/saldo</li>
                  <li>
                      EXEMPLO: 
@@ -78,199 +78,50 @@ API para operações financeiras com consulta de saldo e extrato, possibilidade 
                     </li>                    
                  <li> REPOSTA : [message: [] , data : []] </li>
             </ul>
-        <p>SALDO</p>
+   <p>SAQUE</p>
             <ul>
                 <li> METODO : POST </li>
-                 <li> ENDPOINT : http://localhost:8000/movimentacao/saldo</li>
+                 <li> ENDPOINT : http://localhost:8000/movimentacao/saque</li>
                  <li>
                      EXEMPLO: 
                       {
                          "user_id": "1", 
-                         "senha": "1234"
+                         "senha": "1234",
+                         "valor" : 10000
                      }
                     </li>                    
                  <li> REPOSTA : [message: [] , data : []] </li>
             </ul>
-        {
-			"name": "SALDO",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true,
-				"strictSSL": true
-			},
-			"request": {
-				"auth": {
-					"type": "apikey",
-					"apikey": [
-						{
-							"key": "value",
-							"value": "ZTliMWNmYzdmNDM5NzhjYjE4ZTc5OTgyN2M5MmNiMzA=MjEzZWFjN2QtYjE5MC00ZDI5LTk3YzItZmVkNzFkNTc4ZWUwOTdiZThjZjJjNmE4ZTA0N2MzZjczOTEyY2I4MzJjNmI=ZGE2NTE3MDgtZDljOC00OWQyLThkY2UtYzVmZTE5NDE0NGFi",
-							"type": "string"
-						},
-						{
-							"key": "key",
-							"value": "Authorization",
-							"type": "string"
-						},
-						{
-							"key": "in",
-							"value": "header",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \n\"conta\": \"0001\", \n\"senha\": \"1234\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/movimentacao/saldo",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"movimentacao",
-						"saldo"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SAQUE",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \r\n\"conta\": \"0001\", \r\n\"senha\": \"1234\",\r\n\"valor\": 10000\r\n}   ",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/movimentacao/saque",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"movimentacao",
-						"saque"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "DEPOSITO",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \r\n\"conta\": \"0001\", \r\n\"senha\": \"1234\",\r\n\"valor\": 10000\r\n}   ",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/movimentacao/deposito",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"movimentacao",
-						"deposito"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "EXTRATO",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \r\n\"conta\": \"0001\", \r\n\"senha\": \"1234\",\r\n\"periodo\":\"A\",\r\n\"valor_periodo\":2021\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/movimentacao/extrato",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"movimentacao",
-						"extrato"
-					]
-				}
-			},
-			"response": []
-		}
+   <p>DEPOSITO</p>
+            <ul>
+                <li> METODO : POST </li>
+                 <li> ENDPOINT : http://localhost:8000/movimentacao/deposito</li>
+                 <li>
+                     EXEMPLO: 
+                      {
+                         "user_id": "1", 
+                         "senha": "1234",
+                         "valor" : 100000
+                     }
+                    </li>                    
+                 <li> REPOSTA : [message: [] , data : []] </li>
+            </ul>
+    <p>EXTRTATO</p>
+            <ul>
+                <li> METODO : POST </li>
+                 <li> ENDPOINT : http://localhost:8000/movimentacao/extrato</li>                                 
+                 <li> REPOSTA : [message: [] , data : []] </li>
+            </ul>
+       
         
-      ## tipos movimentação
-      
-      {
-			"name": "LISTA",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/tipo-movimentacao/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"tipo-movimentacao",
-						"list"
-					]
-				}
-			},
-			"response": []
-		}
-        
+  ## tipos movimentação
+  <p>LISTA</p>
+            <ul>
+                <li> METODO : GET </li>
+                 <li> ENDPOINT : http://localhost:8000/api/tipo-movimentacao/list </li>
+                 <li> REPOSTA : [message: [] , data : []] </li>
+            </ul>  
+     
 
 ## License
 
