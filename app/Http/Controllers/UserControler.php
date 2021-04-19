@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Movimentacao;
+use App\Models\User;
 use App\Models\TipoMovimentacao;
 use App\Models\ContaCorrente;
 use Illuminate\Http\Request;
@@ -12,12 +12,9 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function list(){
+        return ['msg' => 'Sucesso', 'data' => User::all()];
+    }
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
