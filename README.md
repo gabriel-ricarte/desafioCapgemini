@@ -12,145 +12,85 @@
 API para operações financeiras com consulta de saldo e extrato, possibilidade de saque e deposito.
 
 ## Endpoints usuarios
-{
+
 			<p>LISTA</p>
             <ul>
                 <li> METODO : GET </li>
                  <li> ENDPOINT : http://localhost:8000/user/list </li>
                  <li> REPOSTA : [message: [] , data : []] </li>
             </ul>
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8000/user/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"user",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "CRIAR",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \r\n\"nome\": \"BELTRANO PEREIRA\", \r\n\"data_nasc\": \"2000-01-01\",\r\n\"sexo\": \"M\",\r\n\"cpf\": \"98733159009\",\r\n\"tipo_pessoa\": \"F\"\r\n}   ",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/user/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"user",
-						"create"
-					]
-				}
-			},
-			"response": []
-		}
+            <p>CRIAR</p>
+            <ul>
+                <li> METODO : POST </li>
+                 <li> ENDPOINT : http://localhost:8000/user/create </li>
+                 <li>
+                     EXEMPLO: 
+                      {
+                         "nome": "BELTRANO PEREIRA", 
+                         "data_nasc": "2000-01-01",
+                         "sexo": "M",
+                         "cpf":  "98733159009\",
+                         "tipo_pessoa": "F"
+                     }
+                    </li>                    
+                 <li> REPOSTA : [message: [] , data : []] </li>
+            </ul>
+		
   
-  ## conta corrente
-  {
-			"name": "LISTA",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/conta-corrente/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"conta-corrente",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "CRIAR",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \r\n\"user_id\": 1, \r\n\"senha\": \"4321\"\r\n}   ",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8000/api/conta-corrente/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"conta-corrente",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "MOSTRA",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8000/api/conta-corrente/show/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"conta-corrente",
-						"show",
-						"1"
-					]
-				}
-			},
-			"response": []
-		}
-        
-        ## movimentacao 
-        
+  ## Endpoint conta corrente
+            <p>LISTA</p>
+            <ul>
+                <li> METODO : GET </li>
+                 <li> ENDPOINT : http://localhost:8000/api/conta-corrente/list </li>
+                 <li> REPOSTA : [message: [] , data : []] </li>
+            </ul>
+            <p>CRIAR</p>
+            <ul>
+                <li> METODO : POST </li>
+                 <li> ENDPOINT : http://localhost:8000/api/conta-corrente/create</li>
+                 <li>
+                     EXEMPLO: 
+                      {
+                         "user_id": "1", 
+                         "senha": "1234"
+                     }
+                    </li>                    
+                 <li> REPOSTA : [message: [] , data : []] </li>
+            </ul>
+            <p>MOSTRA</p>
+            <ul>
+                 <li> METODO : GET </li>
+                 <li> ENDPOINT : http://localhost:8000/api/conta-corrente/show/1</li>                  
+                 <li> REPOSTA : [message: [] , data : []] </li>
+            </ul>
+			
+ ## Endpoint movimentacao 
+         <p>SALDO</p>
+            <ul>
+                <li> METODO : POST </li>
+                 <li> ENDPOINT : http://localhost:8000/movimentacao/saldo</li>
+                 <li>
+                     EXEMPLO: 
+                      {
+                         "user_id": "1", 
+                         "senha": "1234"
+                     }
+                    </li>                    
+                 <li> REPOSTA : [message: [] , data : []] </li>
+            </ul>
+        <p>SALDO</p>
+            <ul>
+                <li> METODO : POST </li>
+                 <li> ENDPOINT : http://localhost:8000/movimentacao/saldo</li>
+                 <li>
+                     EXEMPLO: 
+                      {
+                         "user_id": "1", 
+                         "senha": "1234"
+                     }
+                    </li>                    
+                 <li> REPOSTA : [message: [] , data : []] </li>
+            </ul>
         {
 			"name": "SALDO",
 			"protocolProfileBehavior": {
