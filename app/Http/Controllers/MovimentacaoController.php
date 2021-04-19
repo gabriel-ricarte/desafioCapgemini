@@ -41,11 +41,11 @@ class MovimentacaoController extends Controller
                'valor.min' => 'Valor deve ser maior que dois reais',
                'senha.min' => 'Senha deve possuir 4 digitos',
                'senha.max' => 'Senha deve possuir 4 digitos',
-            
+
         ]);
 
             if(!$validator->fails()){
-                
+
                 try{
                     DB::beginTransaction();
 
@@ -98,11 +98,11 @@ class MovimentacaoController extends Controller
                'valor.min' => 'Valor deve ser maior que dois reais',
                'senha.min' => 'Senha deve possuir 4 digitos',
                'senha.max' => 'Senha deve possuir 4 digitos',
-            
+
         ]);
 
             if(!$validator->fails()){
-                
+
                 try{
                     DB::beginTransaction();
 
@@ -154,8 +154,8 @@ class MovimentacaoController extends Controller
                'senha.max' => 'Senha deve possuir 4 digitos',
                'periodo.required' => 'Tipo do periodo não informado',
                'periodo.in' => 'Periodo deve ser caractere entre "M" (mês) ou "A" (ano)',
-               'valor_periodo.required' => 'Valor do periodo não informado',               
-            
+               'valor_periodo.required' => 'Valor do periodo não informado',
+
         ]);
 
        if(!$validator->fails()){
@@ -182,9 +182,9 @@ class MovimentacaoController extends Controller
                                $movimentacoes = [];
                                 break;
                         }
-                        
+
                         Movimentacao::create(['conta_corrente_id'=> $rsContaCorrente->id, 'tipo_movimentacao_id' => Movimentacao::EXTRATO, 'valor' => 0]);
-                       
+
                     }else{
                         DB::rollback();
                            return response(['message' => ['conta' => ['Conta e/ou senha inválidos']], 'data' => []], 201)->header('Content-Type', 'text/plain charset=utf-8');
@@ -205,29 +205,29 @@ class MovimentacaoController extends Controller
 
    public function saldo(Request $request){
 
-        $valido = $request->validate([
-            'conta' => 'required|exists:contas_correntes,conta',
-            'senha' =>  'required|max:4|min:4',
-            ],
-            [
-               'conta.required' => 'Numero de conta não informado',
-               'conta_corrente_conta.exists' => 'Numero da conta inválido ou inexistente',
-               'senha.required' => 'Senha não informada'
+            $validator = Validator::make($request->all(), [
+                'conta' => 'required|exists:contas_correntes,conta',
+                'senha' =>  'required|max:4|min:4',
+                ],
+                [
+                   'conta.required' => 'Numero de conta não informado',
+                   'conta_corrente_conta.exists' => 'Numero da conta inválido ou inexistente',
+                   'senha.required' => 'Senha não informada'
 
-            ]);
+                ]);
 
-        if($valido){
+        if(!$validator->fails()){
             try{
                 DB::beginTransaction();
                 $retorno = ['msg' => 'Operação realizada com sucesso !', 'status' => 201];
-                $rsContaCorrente = ContaCorrente::where('conta', $request->conta)->first();                
+                $rsContaCorrente = ContaCorrente::where('conta', $request->conta)->first();
                     if($rsContaCorrente && $rsContaCorrente->senha == $request->senha){
-                       
+
                        $saldo = $rsContaCorrente->saldo;
                        Movimentacao::create(['conta_corrente_id'=> $rsContaCorrente->id, 'tipo_movimentacao_id' => Movimentacao::SALDO, 'valor' => 0]);
                     }else{
                         DB::rollback();
-                            return response(['message' => 'Conta e/ou senha inválidos', 'data' => []], 201)->header('Content-Type', 'text/plain');
+                            return response(['message' => 'Conta e/ou senha inválidos', 'data' => []], 201)->header('Content-Type', 'text/plain charset=utf-8');
                     }
 
                     DB::commit();
@@ -236,9 +236,9 @@ class MovimentacaoController extends Controller
                     $retorno['status'] = 500;
                     $retorno['msg'] = $e->getMessage();
                 }
-                return response(['message' => $retorno['msg'], 'data' => $saldo], $retorno['status'])->header('Content-Type', 'text/plain');
+                return response(['message' => $retorno['msg'], 'data' => [$saldo]], $retorno['status'])->header('Content-Type', 'text/plain charset=utf-8');
             }else{
-                return response(['message' => $valido->errors()], 500)->header('Content-Type', 'text/plain');
+                return response(['message' => $validator->errors()], 500)->header('Content-Type', 'text/plain charset=utf-8');
             }
 
    }
@@ -253,7 +253,7 @@ class MovimentacaoController extends Controller
                     $valor_atual = $valor_atual - $request->valor;
                 }else{
                     $msg = 'Saldo insuficiente !';
-                    $valida = false;                   
+                    $valida = false;
                 }
                 break;
             case 'D' :

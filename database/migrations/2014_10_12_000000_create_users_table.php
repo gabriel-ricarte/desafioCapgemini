@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateUsersTable extends Migration
 {
@@ -20,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->enum('sexo',['M','F','N'])->nullable();//M , F , N
             $table->string('cpf',20)->nullable();
             $table->string('cnpj',30)->nullable();
-            $table->string('tipo_pessoa',1);//F ou J
+            $table->string('tipo_pessoa',1)->default('F');//F ou J
             $table->rememberToken();
             $table->timestamps();
         });

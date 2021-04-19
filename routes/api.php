@@ -2,7 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContaCorrenteController;
 use App\Http\Controllers\MovimentacaoController;
+use App\Http\Controllers\TipoMovimentacaoController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +28,18 @@ Route::group(['prefix' => 'movimentacao'] ,function () {
    Route::get('/saldo', [MovimentacaoController::class, 'saldo']);
    Route::post('/extrato', [MovimentacaoController::class, 'extrato']);
 });
+
+Route::group(['prefix' => 'conta-corrente'] ,function () {
+    Route::get('/list', [ContaCorrenteController::class, 'list']);
+    Route::post('/create', [ContaCorrenteController::class, 'store']);
+    Route::get('/show/{id}', [ContaCorrenteController::class, 'show']);
+ });
+
+ Route::group(['prefix' => 'tipo-movimentacao'] ,function () {
+    Route::get('/list', [TipoMovimentacaoController::class, 'list']);
+ });
+
+ Route::group(['prefix' => 'user'] ,function () {
+    Route::get('/list', [UserController::class, 'list']);
+    Route::post('/create', [UserController::class, 'store']);
+ });
