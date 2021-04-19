@@ -16,13 +16,13 @@ API para operações financeiras com consulta de saldo e extrato, possibilidade 
 <p>LISTA</p>
             <ul>
                 <li> METODO : GET </li>
-                 <li> ENDPOINT : http://localhost:8000/user/list </li>
+                 <li> ENDPOINT : http://localhost:8000/api/user/list </li>
                  <li> REPOSTA : [message: [] , data : []] </li>
             </ul>
             <p>CRIAR</p>
             <ul>
                 <li> METODO : POST </li>
-                 <li> ENDPOINT : http://localhost:8000/user/create </li>
+                 <li> ENDPOINT : http://localhost:8000/api/user/create </li>
                  <li>
                      EXEMPLO: 
                       {
@@ -68,7 +68,7 @@ API para operações financeiras com consulta de saldo e extrato, possibilidade 
   <p>SALDO</p>
             <ul>
                 <li> METODO : GET </li>
-                 <li> ENDPOINT : http://localhost:8000/movimentacao/saldo</li>
+                 <li> ENDPOINT : http://localhost:8000/api/movimentacao/saldo</li>
                  <li>
                      EXEMPLO: 
                       {
@@ -81,7 +81,7 @@ API para operações financeiras com consulta de saldo e extrato, possibilidade 
    <p>SAQUE</p>
             <ul>
                 <li> METODO : POST </li>
-                 <li> ENDPOINT : http://localhost:8000/movimentacao/saque</li>
+                 <li> ENDPOINT : http://localhost:8000/api/movimentacao/saque</li>
                  <li>
                      EXEMPLO: 
                       {
@@ -95,7 +95,7 @@ API para operações financeiras com consulta de saldo e extrato, possibilidade 
    <p>DEPOSITO</p>
             <ul>
                 <li> METODO : POST </li>
-                 <li> ENDPOINT : http://localhost:8000/movimentacao/deposito</li>
+                 <li> ENDPOINT : http://localhost:8000/api/movimentacao/deposito</li>
                  <li>
                      EXEMPLO: 
                       {
@@ -109,7 +109,7 @@ API para operações financeiras com consulta de saldo e extrato, possibilidade 
     <p>EXTRTATO</p>
             <ul>
                 <li> METODO : POST </li>
-                 <li> ENDPOINT : http://localhost:8000/movimentacao/extrato</li>                                 
+                 <li> ENDPOINT : http://localhost:8000/api/movimentacao/extrato</li>                                 
                  <li> REPOSTA : [message: [] , data : []] </li>
             </ul>
        
