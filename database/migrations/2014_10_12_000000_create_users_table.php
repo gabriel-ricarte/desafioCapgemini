@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('nome');
             $table->string('data_nasc');
-            $table->enum('sexo',['M','F','N'])->nullable();//M , F , N
+            $table->enum('sexo',['M','F','N'])->nullable();//Masculino , Feminino , Nao definido
             $table->string('cpf',20)->nullable();
             $table->string('cnpj',30)->nullable();
             $table->string('tipo_pessoa',1)->default('F');//F ou J
