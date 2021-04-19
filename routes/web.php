@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContaCorrenteController;
 use App\Http\Controllers\MovimentacaoController;
 
 /*
@@ -14,17 +15,8 @@ use App\Http\Controllers\MovimentacaoController;
 |
 */
 
-Route::group(['prefix' => 'movimentacao'] ,function () {
-   Route::post('/saque', [MovimentacaoController::class, 'saque']);
-   Route::post('/deposito', [MovimentacaoController::class, 'deposito']);
-   Route::get('/saldo', [MovimentacaoController::class, 'saldo']);
-   Route::post('/extrato', [MovimentacaoController::class, 'extrato']);
-});
+Route::get('/', [ContaCorrenteController::class, 'index']);
 
-Route::group(['prefix' => 'conta'] ,function () {
-   Route::post('/saque', [MovimentacaoController::class, 'saque']);
-   Route::post('/deposito', [MovimentacaoController::class, 'deposito']);
-   Route::post('/saldo', [MovimentacaoController::class, 'saldo']);
-   Route::post('/extrato', [MovimentacaoController::class, 'extrato']);
-});
+Route::get('/movimentacao/conta/{conta}/senha/{senha}', [MovimentacaoController::class, 'index']);
+
 

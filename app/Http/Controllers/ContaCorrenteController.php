@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Validator;
 class ContaCorrenteController extends Controller
 {
 
+    public function index(){
+        return view('inicio');
+    }
     public function list(Request $request){
         $contaCorrente = new ContaCorrente();
         $contasDisponiveis = $contaCorrente->getList();

@@ -23,13 +23,13 @@ class ContaCorrente extends Model
 
     public function getList()
     {
-        $sql = "SELECT u.nome,cc.conta,cc.saldo FROM contas_correntes as cc inner join users as u on cc.user_id = u.id";
+        $sql = "SELECT u.nome,cc.conta,cc.saldo,cc.senha FROM contas_correntes as cc inner join users as u on cc.user_id = u.id";
         return DB::select($sql);
     }
 
     public function getInfo($params)
     {
-        $sql = "SELECT u.nome,cc.conta,cc.saldo,cc.senha,u.cpf,u.cnpj,u.tipo_pessoa FROM contas_correntes as cc inner join users as u on cc.user_id = u.id where cc.id = {$params}";
+        $sql = "SELECT u.nome,cc.conta,cc.saldo,cc.senha,cc.senha,u.cpf,u.cnpj,u.tipo_pessoa FROM contas_correntes as cc inner join users as u on cc.user_id = u.id where cc.id = {$params}";
         return DB::select($sql);
     }
 
