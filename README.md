@@ -129,5 +129,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 ## frontEnd 
- - está na pasta frontEndVue
+ - npm install e npm run dev
+ 
 
