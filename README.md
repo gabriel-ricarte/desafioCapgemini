@@ -29,7 +29,7 @@ API para operações financeiras com consulta de saldo e extrato, possibilidade 
                          "nome": "BELTRANO PEREIRA", 
                          "data_nasc": "2000-01-01",
                          "sexo": "M",
-                         "cpf":  "98733159009\",
+                         "cpf":  "98733159009",
                          "tipo_pessoa": "F"
                      }
                     </li>                    
