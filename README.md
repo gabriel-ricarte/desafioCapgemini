@@ -11,10 +11,14 @@
 
 API para operações financeiras com consulta de saldo e extrato, possibilidade de saque e deposito.
 
-## Endpoints
-## usuarios :
+## Endpoints usuarios
 {
-			"name": "LISTA",
+			<p>LISTA</p>
+            <ul>
+                <li> METODO : GET </li>
+                 <li> ENDPOINT : http://localhost:8000/user/list </li>
+                 <li> REPOSTA : [message: [] , data : []] </li>
+            </ul>
 			"request": {
 				"method": "GET",
 				"header": [],
